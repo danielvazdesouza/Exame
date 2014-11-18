@@ -5,20 +5,24 @@
  */
 package controller;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Daniel
  */
-public interface InterfaceExame {
+public interface InterfaceExame<T> {
 
     String driverJDBC = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     String host = "jdbc:sqlserver://localhost;databaseName=Cantina";
     String usuario = "sa";
     String senha = "12345";
 
-    boolean incluir();
+    boolean incluir(T obj);
 
-    boolean excluir();
+    boolean excluir(T obj);
 
-    boolean alterar();
+    boolean alterar(T obj, int id);
+    
+    ArrayList<T> consultar();
 }

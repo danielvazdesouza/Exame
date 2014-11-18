@@ -5,30 +5,31 @@
  */
 package controller;
 
+import java.util.ArrayList;
 import model.Medico;
 
 /**
  *
  * @author Daniel
  */
-public class MedicoController implements InterfaceExame{
+public class MedicoController implements InterfaceExame<Medico>{
 
     @Override
-    public boolean incluir() {
+    public boolean incluir(Medico obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean excluir() {
+    public boolean excluir(Medico obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean alterar() {
+    public boolean alterar(Medico obj, int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    public Medico consultar(){
+
+    public ArrayList<Medico> consultar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
