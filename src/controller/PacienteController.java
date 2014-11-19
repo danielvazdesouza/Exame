@@ -20,9 +20,9 @@ public class PacienteController extends ControllerSuper implements InterfaceExam
     public boolean incluir(Paciente obj) {
         int linhas = 0;
         // Cria Query
-        String query = "INSERT INTO Medico(CodPaciente, Cpf, Nome, Endereco, Cidade, Uf, dtNascimento, Peso, Altura) VALUES('" + obj.getCodPaciente() + "','" + obj.getCpf() + "','"
-                + obj.getNome() + "','" + obj.getEndereco() + "','" + obj.getCidade() + "','" + obj.getUf() + "','" + obj.getDtNascimento() + "','"
-                + obj.getPeso() + "','" + obj.getAltura() + "')";
+        String query = "INSERT INTO Paciente(CodPaciente, Cpf, Nome, Endereco, Cidade, Uf, dtNascimento, Peso, Altura) VALUES(" + obj.getCodPaciente() + ",'" + obj.getCpf() + "','"
+                + obj.getNome() + "','" + obj.getEndereco() + "','" + obj.getCidade() + "','" + obj.getUf() + "','" + obj.getDtNascimento() + "',"
+                + obj.getPeso() + "," + obj.getAltura() + ")";
         // Executa
         try {
             linhas = cmd.executeUpdate(query);
@@ -56,9 +56,9 @@ public class PacienteController extends ControllerSuper implements InterfaceExam
         int linhas = 0;
 
         // Cria Query
-        String query = "UPDATE Paciente SET Cpf ='" + obj.getCpf() + "'Nome='" + obj.getNome() + "'Endereco='"
-                + obj.getEndereco() + "'Cidade='" + obj.getCidade() + "'Uf='" + obj.getUf()
-                + "'DtNascimento='" + obj.getDtNascimento() + "'Peso='" + obj.getPeso() + "'Altura='" + obj.getAltura() + "' WHERE CodPaciente =" + obj.getCodPaciente();
+        String query = "UPDATE Paciente SET Cpf ='" + obj.getCpf() + "', Nome='" + obj.getNome() + "', Endereco='"
+                + obj.getEndereco() + "', Cidade='" + obj.getCidade() + "', Uf='" + obj.getUf()
+                + "', DtNascimento='" + obj.getDtNascimento() + "', Peso=" + obj.getPeso() + ", Altura=" + obj.getAltura() + " WHERE CodPaciente =" + obj.getCodPaciente();
         // Executa
         try {
             linhas = cmd.executeUpdate(query);
@@ -77,7 +77,7 @@ public class PacienteController extends ControllerSuper implements InterfaceExam
         ArrayList<Paciente> ret = new ArrayList();
 
         // Cria Query
-        String query = "SELECT CodPaciente, Cpf, Nome, Endereco, Cidade, Uf, DtNascimento, Peso, Altura from Paciente";
+        String query = "SELECT CodPaciente, Cpf, Nome, Endereco, Cidade, Uf, DtNascto, Peso, Altura from Paciente"; 
 
         try {
             // Preenche retorno
@@ -91,7 +91,7 @@ public class PacienteController extends ControllerSuper implements InterfaceExam
                 p.setEndereco(set.getString("Endereco"));
                 p.setCidade(set.getString("Cidade"));
                 p.setUf(set.getString("Uf"));
-                p.setDtNascimento(set.getDate("DtNascimento"));
+                p.setDtNascimento(set.getDate("DtNascto"));
                 p.setPeso(set.getDouble("Peso"));
                 p.setAltura(set.getDouble("Altura"));
 
