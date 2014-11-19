@@ -16,6 +16,9 @@ public class ExamePaciente {
     private int qtdExame;
     private double valorExame;
     private double total;
+    private int codExame;
+    private int codPaciente;
+    private int codMedico;
 
     /**
      * @return the dtExame
@@ -71,5 +74,47 @@ public class ExamePaciente {
      */
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    /**
+     * @return the codExame
+     */
+    public int getCodExame() {
+        return codExame;
+    }
+
+    /**
+     * @param codExame the codExame to set
+     */
+    public void setCodExame(int codExame) {
+        this.codExame = codExame;
+    }
+
+    /**
+     * @return the codPaciente
+     */
+    public int getCodPaciente() {
+        return codPaciente;
+    }
+
+    /**
+     * @param codPaciente the codPaciente to set
+     */
+    public void setCodPaciente(int codPaciente) {
+        this.codPaciente = codPaciente;
+    }
+
+    /**
+     * @return the codMedico
+     */
+    public int getCodMedico() {
+        return codMedico;
+    }
+
+    /**
+     * @param codMedico the codMedico to set
+     */
+    public void setCodMedico(int codMedico) {
+        this.codMedico = codMedico;
     }
 }
