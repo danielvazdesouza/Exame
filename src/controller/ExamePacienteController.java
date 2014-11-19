@@ -21,8 +21,8 @@ public class ExamePacienteController extends ControllerSuper implements Interfac
         int linhas = 0;
         // Cria Query
 
-        String query = "INSERT INTO ExamePaciente(dtExame, qtdExame, ValorExame, total ) VALUES('" + obj.getDtExame() + "','" + obj.getQtdExame() + "','"
-                + obj.getValorExame() + "','" + obj.getTotal() + "')";
+        String query = "INSERT INTO Exame_Paciente(codExame, codPaciente, codMedico, dtExame, qtdExame, ValorExame, total )"
+                                    + " VALUES("+obj.getCodExame()+", "+obj.getCodPaciente()+", "+obj.getCodMedico()+", '" + obj.getDtExame() + "'," + obj.getQtdExame() + "," + obj.getValorExame() + "," + obj.getTotal() + ")";
         // Executa
         try {
             linhas = cmd.executeUpdate(query);
@@ -38,7 +38,7 @@ public class ExamePacienteController extends ControllerSuper implements Interfac
     public boolean excluir(ExamePaciente obj) {
         int linhas = 0;
         // Cria Query
-        String query = "DELETE from Paciente WHERE DtExame =" + obj.getDtExame();
+        String query = "DELETE from Exame_Paciente WHERE  codExame = "+obj.getCodExame()+" && codPaciente = "+obj.getCodPaciente()+" && codMedico = " + obj.getCodMedico();
         // Executa
         try {
             linhas = cmd.executeUpdate(query);
@@ -56,8 +56,9 @@ public class ExamePacienteController extends ControllerSuper implements Interfac
         int linhas = 0;
 
         // Cria Query    
-        String query = "UPDATE ExamePaciente SET dtExame = " + obj.getDtExame() + "',QtdExame='"
-                + obj.getQtdExame() + "'ValorExame='" + obj.getValorExame() + "'Total=,'" + obj.getTotal() + "')";
+        String query = "UPDATE Exame_Paciente SET dtExame = '" + obj.getDtExame() + "', QtdExame="
+                + obj.getQtdExame() + ", ValorExame=" + obj.getValorExame() + ", Total=" + obj.getTotal()
+                + " WHERE  codExame = "+obj.getCodExame()+" && codPaciente = "+obj.getCodPaciente()+" && codMedico = " + obj.getCodMedico();
         // Executa
         try {
             linhas = cmd.executeUpdate(query);
@@ -75,17 +76,21 @@ public class ExamePacienteController extends ControllerSuper implements Interfac
         conecta();
         ArrayList<ExamePaciente> ret = new ArrayList();
         // Cria Query
-        String query = "SELECT dtExame, qtdExame, ValorExame, total from ExamePaciente";
+        String query = "SELECT codExame,codPaciente,codMedico, dtExame, qtdExame, ValorExame, total from Exame_Paciente";
         try {
             // Preenche retorno
             ResultSet set = cmd.executeQuery(query);
             while (set.next()) {
 
                 ExamePaciente ep = new ExamePaciente();
+                ep.setCodExame(set.getInt("codExame"));
+                ep.setCodMedico(set.getInt("codMedico"));
+                ep.setCodPaciente(set.getInt("codPaciente"));
                 ep.setDtExame(set.getDate("dtExame"));
                 ep.setQtdExame(set.getInt("qtdExame"));
                 ep.setValorExame(set.getDouble("ValorExame"));
-                ep.setTotal(set.getDouble("Total"));
+                ep.setTotal(set.getDouble("total"));
+                
                 ret.add(ep);
             }
         } catch (SQLException ex) {
