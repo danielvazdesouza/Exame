@@ -57,7 +57,7 @@ public class ExameController extends ControllerSuper implements InterfaceExame<E
 
         // Cria Query
         String query = "UPDATE Exame SET DescExame ='" + obj.getDescExame()
-                + "' ValorUnit='" + obj.getValorUnit() + "' WHERE CodExame =" + obj.getCodExame();
+                + "', ValorUnit='" + obj.getValorUnit() + "' WHERE CodExame =" + obj.getCodExame();
         // Executa
         try {
             linhas = cmd.executeUpdate(query);
