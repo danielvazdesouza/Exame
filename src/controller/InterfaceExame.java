@@ -10,6 +10,7 @@ import java.util.ArrayList;
 /**
  *
  * @author Daniel
+ * @param <T>
  */
 public interface InterfaceExame<T> {
 

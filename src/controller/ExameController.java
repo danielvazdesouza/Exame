@@ -21,7 +21,7 @@ public class ExameController extends ControllerSuper implements InterfaceExame<E
         conecta();
         int linhas = 0;
         // Cria Query
-        String query = "INSERT INTO Exame(CodExame, DescExame, Valorunit ) VALUES('" + obj.getCodExame() + "','" + obj.getDescExame() + "','" + obj.getValorUnit() + "')";
+        String query = "INSERT INTO Exame(CodExame, DescExame, Valorunit ) VALUES(" + obj.getCodExame() + ",'" + obj.getDescExame() + "'," + obj.getValorUnit() + ")";
         // Executa
         try {
             linhas = cmd.executeUpdate(query);
@@ -57,7 +57,7 @@ public class ExameController extends ControllerSuper implements InterfaceExame<E
 
         // Cria Query
         String query = "UPDATE Exame SET DescExame ='" + obj.getDescExame()
-                + "'ValorUnit='" + obj.getValorUnit() + "' WHERE CodExame =" + obj.getCodExame();
+                + "' ValorUnit='" + obj.getValorUnit() + "' WHERE CodExame =" + obj.getCodExame();
         // Executa
         try {
             linhas = cmd.executeUpdate(query);
@@ -70,6 +70,7 @@ public class ExameController extends ControllerSuper implements InterfaceExame<E
         return linhas > 0;
     }
 
+    @Override
     public ArrayList<Exame> consultar() {
         conecta();
         ArrayList<Exame> ret = new ArrayList();

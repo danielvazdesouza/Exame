@@ -20,9 +20,9 @@ abstract class ControllerSuper {
      * Construtor
      */
     public ControllerSuper() {
-        String conStr = " -------------------------- ";
+        String conStr = "-------------";
         try {
-            con = DriverManager.getConnection(conStr, "tempUser", "temp123");
+            con = DriverManager.getConnection(conStr, "user", "senha");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
