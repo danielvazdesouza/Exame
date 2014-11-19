@@ -20,7 +20,7 @@ public class MedicoController extends ControllerSuper implements InterfaceExame<
     public boolean incluir(Medico obj) {
         int linhas = 0;
         // Cria Query
-        String query = "INSERT INTO Medico(CodMedico, Crm, Nome, Endereco, Cidade, Uf, Email, Telefone) VALUES('" + obj.getCodMedico() + "','" + obj.getCrm() + "','"
+        String query = "INSERT INTO Medico(CodMedico, Crm, Nome, Endereco, Cidade, Uf, Email, Telefone) VALUES(" + obj.getCodMedico() + ",'" + obj.getCrm() + "','"
                 + obj.getNome() + "','" + obj.getEndereco() + "','" + obj.getCidade() + "','" + obj.getUf() + "','" + obj.getEmail() + "','"
                 + obj.getTelefone() + "')";
         // Executa
@@ -56,8 +56,8 @@ public class MedicoController extends ControllerSuper implements InterfaceExame<
         int linhas = 0;
 
         // Cria Query    
-        String query = "UPDATE Medico SET Crm ='" + obj.getCrm() + "'Nome='" + obj.getNome() + "'Endereco='" + obj.getEndereco()
-                + "'Cidade='" + obj.getCidade() + "'Uf='" + obj.getUf() + "'Email='" + obj.getEmail() + "'Telefone='"
+        String query = "UPDATE Medico SET Crm ='" + obj.getCrm() + "', Nome='" + obj.getNome() + "', Endereco='" + obj.getEndereco()
+                + "', Cidade='" + obj.getCidade() + "', Uf='" + obj.getUf() + "', Email='" + obj.getEmail() + "', Telefone='"
                 + obj.getTelefone() + "' WHERE CodMedico =" + obj.getCodMedico();
         // Executa
         try {
@@ -85,7 +85,7 @@ public class MedicoController extends ControllerSuper implements InterfaceExame<
             while (set.next()) {
 
                 Medico m = new Medico();
-                m.setCodMedico(set.getInt("CodExame"));
+                m.setCodMedico(set.getInt("CodMedico"));
                 m.setCrm(set.getString("Crm"));
                 m.setNome(set.getString("Nome"));
                 m.setEndereco(set.getString("Endereco"));
