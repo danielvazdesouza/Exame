@@ -14,11 +14,6 @@ import java.util.ArrayList;
  */
 public interface InterfaceExame<T> {
 
-    String driverJDBC = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    String host = "jdbc:sqlserver://localhost;databaseName=Cantina";
-    String usuario = "sa";
-    String senha = "12345";
-
     boolean incluir(T obj);
 
     boolean excluir(T obj);
